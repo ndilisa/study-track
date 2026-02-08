@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="Hub_css.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            transition: transform 0.5s ease-in-out;
+            justify-content: center;
+            align-items: flex-end;
+            height: 80vh;
+            position: relative;
+        }
+
+        .home-section,
+        .about-section {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            position: absolute;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .home-section {
+            bottom: 10%;
+            left: 50%;
+            transform: translate(-50%, -10%);
+            background: none;
+        }
+
+        .about-section {
+            width: 50%;
+            background-color: #f44336;
+            display: none;
+            top: 10%;
+            right: 0;
+            height: 80vh;
+            box-shadow: -5px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        nav {
+            background: #333;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #f44336;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="header">
+        <nav>
+            <a href="home.html">
+                <img src="https://th.bing.com/th/id/OIP.7fEi3IdXGLiMsv1u4FzEFQAAAA?cb=iwc2&rs=1&pid=ImgDetMain"
+                    alt="Animated student graphic" width="50">
+            </a>
+            <div class="nav-links">
+                <ul>
+                    <li><a onclick="showHome()">Home</a></li>
+                    <li><a onclick="showAbout()">About</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="home-section" id="homeSection">
+                <h1>Welcome To Study-Track Hub</h1>
+                <p>Empowering students with knowledge, one resource at a time. <br>
+                    Study smarter, achieve greater!</p>
+                <a href="access.html" class="visit-btn" onclick="visit()">Visit Us To Know More</a>
+            </div>
+
+
+            <div class="about-section" id="aboutSection">
+                <button class="close-btn" onclick="goBack()">X</button>
+                <h1>About Study-Track Hub</h1>
+                <p>Study-Track Hub is designed to support students in their academic journey by providing
+                    well-organized, high-quality study materials. Our goal is to make learning more efficient and
+                    accessible, helping students maximize their potential.
+                    What We Offer:
+                    Comprehensive Study Materials: Access to past question papers, quizzes, memorandums, and detailed
+                    study notes.
+
+                    Structured Learning Approach: Resources are categorized per subject and faculty for easy navigation.
+
+                    Time-Saving Tools: Quick access to well-organized materials reduces the time spent searching for
+                    content.
+
+                    Student Engagement: Interactive learning features, such as quizzes and discussion boards, enhance
+                    motivation.
+
+                    Regularly Updated Resources: Content is constantly refreshed to ensure students have the latest
+                    academic materials.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <footer>&copy; 2025 Study-Track Hub | All Rights Reserved</footer>
+        </div>
+    </section>
+
+    <script>
+        function visit() {
+            window.location.href = "access.html";
+        }
+
+        function showHome() {
+            document.getElementById("homeSection").style.display = "block";
+            document.getElementById("aboutSection").style.display = "none";
+        }
+
+        function showAbout() {
+            document.getElementById("aboutSection").style.display = "block";
+        }
+
+        function goBack() {
+            document.getElementById("aboutSection").style.display = "none";
+        }
+
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(() => console.log("Service Worker Registered"));
+        }
+    </script>
+</body>
+
+</html>
