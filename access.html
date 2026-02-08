@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Page</title>
+    <link rel="stylesheet" href="Hub_css.css">
+
+
+
+</head>
+
+<body>
+
+    <header style="color: white; text-align: center; padding: 20px;">
+        <h1>Study-Track Hub</h1>
+        <h3> A Better Web, For Better Learning Materials!</h3>
+    </header>
+
+    <main>
+        <section class="login-section">
+            <h3 style="color: black;">Login to Access Study Materials</h3><br>
+            <form onsubmit="return Login()">
+                <label for="username" style="color: black;">User Name:</label><br>
+                <input type="text" id="username" name="username" required><br>
+
+                <label for="email" style="color: black;">Email:</label><br>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="password" style="color: black;">Password:</label><br>
+                <input type="password" id="password" name="password" required><br>
+
+                <button onclick="Login()">Login</button>
+                <button onclick="SignUp()">Sign Up</button><br><br>
+                <a href="sign_up.html" onclick="ForgotPassword()" style="color: blue;">Forgot Password?</a>
+
+                <script>
+                    function Login() {
+                        alert("Login successful!")
+                        window.location.href = "resources.html";
+                    }
+
+                    function SignUp() {
+                        window.location.href = "sign_up.html";
+                    }
+
+                </script>
+
+            </form>
+        </section>
+    </main>
+
+    <footer>&copy; 2025 Study-Track Hub | All Rights Reserved</footer>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(() => console.log("Service Worker Registered"));
+        }
+    </script>
+</body>
+
+</html>
